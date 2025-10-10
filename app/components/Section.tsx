@@ -6,6 +6,7 @@ import type { SectionProps } from '../types'
 import TechCarousel from './TechCarousel'
 import RotatingText from './RotatingText'
 import ServicesCarousel from './ServicesCarousel'
+import PartnersCarousel from './PartnersCarousel'
 import Image from 'next/image'
 
 export default function Section({
@@ -106,38 +107,46 @@ export default function Section({
         </>
       )}
       {partners && (
-        <motion.div
-          className="mt-8 space-y-6 max-w-4xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isActive ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          {partners.map((partner, index) => (
-            <motion.div
-              key={partner.name}
-              className="flex items-start gap-6 rounded-2xl bg-white/5 p-6 backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.12 }}
-            >
-              <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white">
-                <Image
-                  src={partner.logo || '/placeholder.svg'}
-                  alt={`${partner.name} logo`}
-                  width={64}
-                  height={64}
-                  className="h-12 w-12 object-contain"
-                />
-              </div>
-              <div className="flex flex-col gap-2 text-left">
-                <h3 className="text-xl md:text-2xl font-semibold text-white">{partner.name}</h3>
-                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
-                  {partner.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
+        <>
+          {/* Mobile: Carousel with swipe */}
+          <div className="md:hidden">
+            <PartnersCarousel partners={partners} isActive={isActive} />
+          </div>
+
+          {/* Desktop: Card layout */}
+          <motion.div
+            className="hidden md:block mt-8 space-y-6 max-w-4xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isActive ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner.name}
+                className="flex items-start gap-6 rounded-2xl bg-white/5 p-6 backdrop-blur-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isActive ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.12 }}
+              >
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white">
+                  <Image
+                    src={partner.logo || '/placeholder.svg'}
+                    alt={`${partner.name} logo`}
+                    width={64}
+                    height={64}
+                    className="h-12 w-12 object-contain"
+                  />
+                </div>
+                <div className="flex flex-col gap-2 text-left">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white">{partner.name}</h3>
+                  <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                    {partner.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </>
       )}
       {showCarousel && (
         <motion.div
