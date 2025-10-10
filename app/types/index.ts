@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import type { StaticImageData } from 'next/image'
 
 export interface Service {
   title: string
@@ -8,7 +9,7 @@ export interface Service {
 export interface Partner {
   name: string
   description: string
-  logo: string
+  logo: string | StaticImageData
 }
 
 export interface Section {

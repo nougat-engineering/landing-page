@@ -32,12 +32,14 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the r
 When building for local testing with Live Server or a local HTTP server:
 
 1. **Comment out** the `basePath` and `assetPrefix` in `next.config.mjs`:
+
    ```javascript
    // basePath: '/landing-page',
    // assetPrefix: '/landing-page/',
    ```
 
 2. Build the project:
+
    ```bash
    pnpm build
    ```
@@ -54,6 +56,7 @@ When building for local testing with Live Server or a local HTTP server:
 When building for GitHub Pages deployment:
 
 1. **Uncomment** the `basePath` and `assetPrefix` in `next.config.mjs`:
+
    ```javascript
    basePath: '/landing-page',
    assetPrefix: '/landing-page/',
@@ -65,6 +68,7 @@ When building for GitHub Pages deployment:
    ```
 
 This will:
+
 - Build the project with `pnpm build`
 - Deploy the `/out` directory to the `gh-pages` branch
 - Publish to GitHub Pages
@@ -96,6 +100,7 @@ This will:
 ## Deployment
 
 This project is configured for deployment on GitHub Pages. The site will be available at:
+
 ```
 https://[username].github.io/landing-page/
 ```

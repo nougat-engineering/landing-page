@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import nougatLogo from '@/public/nougat-logo.png'
+import ibicareLogo from '@/public/ibicare-logo.png'
+import maspedidosLogo from '@/public/maspedidos-logo.png'
 
 export const sections = [
   {
@@ -66,13 +68,13 @@ export const sections = [
         name: 'Ibicare',
         description:
           'Migrated the mobile app from Xamarin to Flutter and rebuilt legacy Windows Services in Express.js, achieving a unified, high-performance, and scalable cross-platform solution.',
-        logo: '/ibicare-logo.png',
+        logo: ibicareLogo,
       },
       {
         name: 'MasPedidos',
         description:
           'Implemented printing solutions using WebUSB, Web Bluetooth, and native Windows integrations to enable seamless communication between browsers and printers, with ongoing development of new features and enhancements.',
-        logo: '/maspedidos-logo.png',
+        logo: maspedidosLogo,
       },
     ],
   },
