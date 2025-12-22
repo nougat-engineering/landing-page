@@ -69,8 +69,8 @@ export default function ServicesCarousel({ services, isActive }: ServicesCarouse
                 animate={isActive ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               >
-                <h3 className="text-xl md:text-2xl font-semibold text-white">{service.title}</h3>
-                <p className="text-sm md:text-base text-neutral-400 leading-relaxed">
+                <h3 className="text-lg md:text-xl font-semibold text-white">{service.title}</h3>
+                <p className="text-sm md:text-sm text-neutral-400 leading-relaxed">
                   {service.description}
                 </p>
               </motion.div>
@@ -88,13 +88,15 @@ export default function ServicesCarousel({ services, isActive }: ServicesCarouse
             className={`h-2 rounded-full transition-all duration-300 ${
               index === currentPage ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/50'
             }`}
-            aria-label={`Go to page ${index + 1}`}
+            aria-label={`Ir a la página ${index + 1}`}
           />
         ))}
       </div>
 
       {/* Swipe indicator */}
-      <p className="text-center text-sm text-neutral-500 mt-4">Swipe to discover our services</p>
+      <p className="text-center text-sm text-neutral-500 mt-4">
+        Desliza para conocer nuestros servicios
+      </p>
     </div>
   )
 }

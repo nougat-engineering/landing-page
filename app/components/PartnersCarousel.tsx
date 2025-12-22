@@ -61,15 +61,15 @@ export default function PartnersCarousel({ partners, isActive }: PartnersCarouse
                 <div className="flex h-20 w-20 items-center justify-center rounded-xl bg-white backdrop-blur-sm p-3">
                   <Image
                     src={partners[currentPage].logo}
-                    alt={`${partners[currentPage].name} logo`}
+                    alt={`Logo de ${partners[currentPage].name}`}
                     className="h-full w-full object-contain"
                   />
                 </div>
               </div>
-              <h3 className="text-xl md:text-2xl font-semibold text-white text-center">
+              <h3 className="text-lg md:text-xl font-semibold text-white text-center">
                 {partners[currentPage].name}
               </h3>
-              <p className="text-sm md:text-base text-neutral-400 leading-relaxed text-left">
+              <p className="text-sm md:text-sm text-neutral-400 leading-relaxed text-left">
                 {partners[currentPage].description}
               </p>
             </motion.div>
@@ -86,13 +86,15 @@ export default function PartnersCarousel({ partners, isActive }: PartnersCarouse
             className={`h-2 rounded-full transition-all duration-300 ${
               index === currentPage ? 'w-8 bg-white' : 'w-2 bg-white/30 hover:bg-white/50'
             }`}
-            aria-label={`Go to page ${index + 1}`}
+            aria-label={`Ir a la página ${index + 1}`}
           />
         ))}
       </div>
 
       {/* Swipe indicator */}
-      <p className="text-center text-sm text-neutral-500 mt-4">Swipe to see our partners</p>
+      <p className="text-center text-sm text-neutral-500 mt-4">
+        Desliza para ver nuestros casos de éxito
+      </p>
     </div>
   )
 }

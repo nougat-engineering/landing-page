@@ -2,25 +2,27 @@ import { Metadata } from 'next'
 
 export const siteConfig = {
   name: 'Nougat - Digital Solutions',
-  title: 'Empower Your Business With Nougat',
+  title: 'Moderniza Tu PYME Sin Detener Operaciones | Nougat',
   description:
-    'Custom digital solutions for your business. We develop innovative web and mobile applications, AI solutions, and digital transformation services.',
+    'Soluciones de modernización tecnológica para PYMES. Reducimos deuda técnica, automatizamos procesos y modernizamos sistemas legacy sin interrumpir tu operación. Diagnóstico sin costo.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',
   ogImage: '/landing-page/opengraph-image',
   author: 'Nougat',
   keywords: [
-    'digital solutions',
-    'web development',
-    'mobile apps',
-    'AI solutions',
-    'custom software',
-    'digital transformation',
-    'business technology',
-    'software development',
+    'modernización tecnológica pymes',
+    'deuda técnica',
+    'sistemas legacy',
+    'automatización procesos',
+    'transformación digital pymes',
+    'roadmap tecnológico',
+    'diagnóstico tecnológico',
+    'modernización sistemas',
+    'continuidad negocio',
+    'eficiencia operativa',
   ],
   creator: 'Nougat',
   themeColor: '#000000',
-  language: 'en',
+  language: 'es',
 }
 
 export const defaultMetadata: Metadata = {
@@ -35,7 +37,7 @@ export const defaultMetadata: Metadata = {
   creator: siteConfig.creator,
   openGraph: {
     type: 'website',
-    locale: 'en_US',
+    locale: 'es_MX',
     url: siteConfig.url,
     title: siteConfig.title,
     description: siteConfig.description,
@@ -78,8 +80,8 @@ export const organizationSchema = {
   sameAs: ['https://instagram.com/nougat.dev'],
   contactPoint: {
     '@type': 'ContactPoint',
-    contactType: 'Customer Service',
-    availableLanguage: ['English', 'Spanish'],
+    contactType: 'Atención al Cliente',
+    availableLanguage: ['Spanish', 'Español'],
   },
 }
 

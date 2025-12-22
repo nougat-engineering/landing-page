@@ -6,88 +6,91 @@ import maspedidosLogo from '@/public/maspedidos-logo.png'
 export const sections = [
   {
     id: 'hero',
-    subtitle: <Image src={nougatLogo} alt="Nougat logo" className="h-12 w-auto" priority />,
-    introText: 'We ',
+    subtitle: <Image src={nougatLogo} alt="Logo de Nougat" className="h-12 w-auto" priority />,
+    introText: 'Nosotros ',
     showRotatingText: true,
     rotatingWords: [
-      'create',
-      'design',
-      'build',
-      'develop',
-      'innovate',
-      'transform',
-      'engineer',
-      'scale',
+      'modernizamos',
+      'optimizamos',
+      'transformamos',
+      'automatizamos',
+      'aceleramos',
+      'mejoramos',
+      'escalamos',
+      'eficientamos',
     ],
-    title: 'Custom Software Solutions',
+    title: 'Modernización Tecnológica Sin Detener Operaciones',
     content:
-      "They fit with each client's unique processes — working closely with them to turn their needs into intuitive, scalable platforms.",
+      'Reducimos deuda técnica y automatizamos procesos sin interrumpir tu operación diaria.',
     showButton: false,
   },
   {
     id: 'services',
-    title: 'Our Services',
+    title: 'Nuestros Servicios',
     services: [
       {
-        title: 'Web Development',
+        title: 'Desarrollo Web',
         description:
-          'From corporate websites to complex systems, we use modern technologies that guarantee high performance and exceptional user experience.',
+          'Modernizamos sistemas legacy y reducimos procesos manuales. Transformamos plataformas obsoletas en soluciones modernas que mejoran la eficiencia y reducen costos operativos.',
       },
       {
-        title: 'Mobile Development',
+        title: 'Desarrollo Móvil',
         description:
-          'We design and develop native or hybrid mobile applications, optimized for Android and iOS with industry best practices.',
+          'Aplicaciones móviles que automatizan procesos y mejoran la productividad de tu equipo. Soluciones nativas e híbridas optimizadas para eficiencia operativa.',
       },
       {
-        title: 'UI/UX Design',
+        title: 'Diseño UI/UX',
         description:
-          'We create attractive, intuitive, and user-centered interfaces. We transform complex ideas into clear, accessible, and functional digital experiences.',
+          'Interfaces intuitivas que reducen errores y tiempo de capacitación. Transformamos procesos complejos en experiencias digitales claras y funcionales para tu equipo.',
       },
       {
-        title: 'Embedded Systems & IoT',
+        title: 'Sistemas Embebidos e IoT',
         description:
-          'Integrated solutions for connected devices. From firmware to device-to-device communication, we facilitate hardware and software integration in real-time.',
+          'Automatización y monitoreo en tiempo real. Soluciones integradas que conectan dispositivos y optimizan procesos operativos sin interrupciones.',
       },
       {
-        title: 'Cloud Architecture',
+        title: 'Arquitectura Cloud',
         description:
-          'We architect robust and scalable solutions aligned with your goals. We design cloud infrastructure, microservices, databases, and continuous integration flows.',
+          'Infraestructura escalable que reduce costos y garantiza continuidad del negocio. Migramos sistemas legacy a la nube sin detener operaciones.',
       },
       {
-        title: 'Artificial Intelligence',
+        title: 'Inteligencia Artificial',
         description:
-          'AI integrations, intelligent chatbots, process automation, and custom machine learning solutions for your business.',
+          'Automatización inteligente de procesos y toma de decisiones basada en datos. Chatbots, análisis predictivo y soluciones de machine learning personalizadas para tu negocio.',
       },
     ],
   },
   {
     id: 'partners',
-    title: 'Teams we work with',
+    title: 'Casos de Éxito',
     partners: [
       {
         name: 'Ibicare',
         description:
-          'Migrated the mobile app from Xamarin to Flutter and rebuilt legacy Windows Services in Express.js, achieving a unified, high-performance, and scalable cross-platform solution.',
+          'Migración de la aplicación móvil de Xamarin a Flutter y reconstrucción de servicios legacy de Windows en Express.js, logrando una solución unificada, de alto rendimiento y escalable sin interrumpir operaciones.',
         logo: ibicareLogo,
       },
       {
         name: 'MasPedidos',
         description:
-          'Implemented printing solutions using WebUSB, Web Bluetooth, and native Windows integrations to enable seamless communication between browsers and printers, with ongoing development of new features and enhancements.',
+          'Implementación de soluciones de impresión usando WebUSB, Web Bluetooth e integraciones nativas de Windows para habilitar comunicación fluida entre navegadores e impresoras, con desarrollo continuo de nuevas funcionalidades.',
         logo: maspedidosLogo,
       },
     ],
   },
   {
     id: 'technologies',
-    title: 'Technologies We Master',
-    content: 'We work with the most modern and reliable tools on the market.',
+    title: 'Tecnologías Modernas y Confiables',
+    content:
+      'Trabajamos con las herramientas más modernas y confiables del mercado que permiten modernización rápida y continuidad del negocio.',
     showCarousel: true,
   },
   {
     id: 'contact',
-    title: "Let's Start Your Project",
+    title: 'Agenda Tu Diagnóstico',
     content:
-      "Ready to take your idea to the next level? Contact us today and let's build the digital future of your business together.",
+      '¿Listo para modernizar tu negocio sin detener operaciones? Agenda tu diagnóstico sin costo y obtén tu roadmap tecnológico personalizado.',
+    showButton: true,
+    buttonText: 'Agenda Diagnóstico Sin Costo',
   },
 ]
