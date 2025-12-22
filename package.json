@@ -9,7 +9,7 @@
     "start": "next start",
     "format": "prettier --write .",
     "predeploy": "pnpm run build",
-    "deploy": "gh-pages -d out -t"
+    "deploy": "node scripts/preserve-cname.js && gh-pages -d out -t"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
