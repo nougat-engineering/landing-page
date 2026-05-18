@@ -1,8 +1,8 @@
 import { Metadata } from 'next'
 
 export const siteConfig = {
-  name: 'Nougat - Digital Solutions',
-  title: 'Moderniza Tu PYME Sin Detener Operaciones | Nougat',
+  name: 'Nougat',
+  title: 'Nougat',
   description:
     'Soluciones de modernización tecnológica para PYMES. Reducimos deuda técnica, automatizamos procesos y modernizamos sistemas legacy sin interrumpir tu operación. Diagnóstico sin costo.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000',

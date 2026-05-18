@@ -8,15 +8,16 @@ export default function WhatsAppButton() {
       href="https://wa.me/529993012963"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Agenda tu diagnóstico en WhatsApp"
-      className="group fixed bottom-6 right-6 z-[9999] flex items-center justify-center bg-white text-black shadow-lg hover:shadow-xl transition-all duration-300 ease-in-out rounded-full w-14 h-14 hover:w-auto hover:px-6 hover:py-4 md:w-auto md:px-6 md:py-4 gap-0 hover:gap-3 md:gap-3"
+      aria-label="Cuéntanos tu idea en WhatsApp"
+      className="fixed bottom-6 right-6 z-[9999] flex items-center gap-2 pl-4 pr-5 py-3 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95"
+      style={{
+        background: '#25D366',
+        color: '#fff',
+        boxShadow: '0 8px 32px rgba(37, 211, 102, 0.35), 0 2px 8px rgba(0,0,0,0.1)',
+      }}
     >
-      <div className="flex items-center justify-center pointer-events-none">
-        <MessageCircle className="w-6 h-6 flex-shrink-0" />
-      </div>
-      <span className="max-w-0 opacity-0 overflow-hidden whitespace-nowrap transition-all duration-300 ease-in-out font-medium group-hover:max-w-[200px] group-hover:opacity-100 md:max-w-[200px] md:opacity-100">
-        Agenda Diagnóstico
-      </span>
+      <MessageCircle className="w-5 h-5" />
+      Cu&eacute;ntanos tu idea
     </a>
   )
 }
