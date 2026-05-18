@@ -182,3 +182,16 @@ html {
 .tech-marquee:hover {
   animation-play-state: paused;
 }
+
+@keyframes serviceMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.service-carousel {
+  animation: serviceMarquee 25s linear infinite;
+}
+
+.service-carousel:hover {
+  animation-play-state: paused;
+}
