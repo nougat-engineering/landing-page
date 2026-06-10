@@ -1,8 +1,9 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useScroll, useSpring } from 'framer-motion'
-import Image, { StaticImport } from 'next/image'
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
+import type { StaticImport } from 'next/dist/shared/lib/get-img-props'
 import nougatLogo from '@/public/nougat-logo.png'
 import ibicareLogo from '@/public/ibicare-logo.png'
 import maspedidosLogo from '@/public/maspedidos-logo.png'
@@ -251,7 +252,7 @@ function AISlide({ isActive }: { isActive: boolean }) {
 function ServiceCarouselCard({ service }: { service: typeof SERVICES[number] }) {
   return (
     <div
-      className="relative flex-shrink-0 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 overflow-hidden"
+      className="relative flex-shrink-0 rounded-2xl p-6 md:p-8 transition-all duration-300 hover:scale-105 overflow-hidden whitespace-normal"
       style={{
         background: `linear-gradient(135deg, ${service.color}15 0%, ${service.color}08 100%)`,
         border: `1px solid ${service.color}25`,
@@ -316,7 +317,7 @@ function ServicesSlide({ isActive }: { isActive: boolean }) {
 
       {/* Desktop: carousel */}
       <div className="hidden md:block relative overflow-hidden py-4">
-        <div className="service-carousel flex items-center gap-6 whitespace-nowrap">
+        <div className="service-carousel flex items-center gap-6">
           {allServices.map((service, i) => (
             <ServiceCarouselCard key={i} service={service} />
           ))}
@@ -341,8 +342,8 @@ function CollaboratorsSlide({ isActive }: { isActive: boolean }) {
     <section className="relative h-screen w-full snap-start snap-always flex items-center px-6 md:px-10 overflow-hidden" style={{ background: NAVY }}>
       <LogoPatternBg />
 
-      {/* Mobile: stacked list */}
-      <div className="md:hidden w-full relative z-10 flex flex-col gap-6">
+      {/* Mobile: paginated carousel */}
+      <div className="md:hidden w-full relative z-10 flex flex-col items-center justify-center gap-6 h-full">
         <motion.h2
           className="text-3xl font-bold leading-[1.05] tracking-tight text-center"
           style={{ fontFamily: "'Poppins', sans-serif", color: OFFWHITE }}
@@ -350,33 +351,55 @@ function CollaboratorsSlide({ isActive }: { isActive: boolean }) {
           animate={isActive ? { opacity: 1, clipPath: 'inset(0 0 0 0)' } : {}}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          Casos de <span style={{ color: '#10A37F' }}>&eacute;xito</span>
+          Casos de <span style={{ color: '#10A37F' }}>éxito</span>
         </motion.h2>
-        <div className="flex flex-col gap-3">
-          {COLLABORATORS.map((collab, i) => (
+
+        <div className="w-full max-w-sm">
+          <AnimatePresence initial={false} mode="wait">
             <motion.div
-              key={i}
-              className="p-4 rounded-xl"
+              key={active}
+              className="p-5 rounded-xl"
               style={{ background: 'rgba(241,242,241,0.08)', border: '1px solid rgba(241,242,241,0.1)' }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isActive ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -50 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                {typeof collab.logo === 'string' ? (
-                  <img src={collab.logo} alt={collab.name} className="h-5 w-auto brightness-0 invert opacity-80" />
+              <div className="flex items-center gap-3 mb-3">
+                {typeof COLLABORATORS[active].logo === 'string' ? (
+                  <img src={COLLABORATORS[active].logo} alt={COLLABORATORS[active].name} className="h-6 w-auto brightness-0 invert opacity-80" />
                 ) : (
-                  <Image src={collab.logo} alt={collab.name} className="h-5 w-auto brightness-0 invert opacity-80" />
+                  <Image src={COLLABORATORS[active].logo} alt={COLLABORATORS[active].name} className="h-6 w-auto brightness-0 invert opacity-80" />
                 )}
+                <h3 className="text-base font-semibold" style={{ color: OFFWHITE }}>
+                  {COLLABORATORS[active].name}
+                </h3>
               </div>
-              <p className="text-xs leading-relaxed" style={{ color: OFFWHITE, opacity: 0.75 }}>{collab.description}</p>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {collab.techs.map((tech) => (
+              <p className="text-sm leading-relaxed mb-3" style={{ color: OFFWHITE, opacity: 0.75 }}>
+                {COLLABORATORS[active].description}
+              </p>
+              <div className="flex flex-wrap gap-1.5">
+                {COLLABORATORS[active].techs.map((tech) => (
                   <span key={tech} className="px-2 py-0.5 text-[10px] font-medium rounded-full" style={{ background: 'rgba(241,242,241,0.08)', color: OFFWHITE, opacity: 0.6 }}>{tech}</span>
                 ))}
               </div>
             </motion.div>
-          ))}
+          </AnimatePresence>
+
+          {/* Pagination dots */}
+          <div className="flex justify-center gap-2 mt-5">
+            {COLLABORATORS.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActive(i)}
+                className="h-2 rounded-full transition-all duration-300"
+                style={{
+                  background: active === i ? OFFWHITE : 'rgba(241,242,241,0.2)',
+                  width: active === i ? '24px' : '8px',
+                }}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
